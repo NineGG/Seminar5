@@ -1,0 +1,28 @@
+Client Failed To Connect To The Database Exception Thrown: 2024-05-20 18:03
+se.kth.iv1350.seminar5.integration.DatabaseUnresponsiveException: Client Failed To Connect To The Database
+	at se.kth.iv1350.seminar5.integration.ExternalInventorySystemAccessPoint.retrieveItem(ExternalInventorySystemAccessPoint.java:68)
+	at se.kth.iv1350.seminar5.controller.Controller.addItem(Controller.java:134)
+	at se.kth.iv1350.seminar5.view.View.addItem(View.java:152)
+	at se.kth.iv1350.seminar5.view.View.fakeCustomer(View.java:99)
+	at se.kth.iv1350.seminar5.startup.Main.main(Main.java:27)
+Failed to find an item with id: 111 Exception Thrown: 2024-05-20 18:03
+se.kth.iv1350.seminar5.integration.NoMatchingItemByIdException: Failed to find an item with id: 111
+	at se.kth.iv1350.seminar5.integration.ExternalInventorySystemAccessPoint.retrieveItem(ExternalInventorySystemAccessPoint.java:80)
+	at se.kth.iv1350.seminar5.controller.Controller.addItem(Controller.java:107)
+	at se.kth.iv1350.seminar5.view.View.addItem(View.java:137)
+	at se.kth.iv1350.seminar5.view.View.fakeCustomer(View.java:100)
+	at se.kth.iv1350.seminar5.startup.Main.main(Main.java:27)
+Client Failed To Connect To The Database Exception Thrown: 2024-05-20 18:03
+se.kth.iv1350.seminar5.integration.DatabaseUnresponsiveException: Client Failed To Connect To The Database
+	at se.kth.iv1350.seminar5.integration.ExternalInventorySystemAccessPoint.retrieveItem(ExternalInventorySystemAccessPoint.java:68)
+	at se.kth.iv1350.seminar5.controller.Controller.addItem(Controller.java:134)
+	at se.kth.iv1350.seminar5.view.View.addItem(View.java:152)
+	at se.kth.iv1350.seminar5.view.View.fakeCustomerTwo(View.java:121)
+	at se.kth.iv1350.seminar5.startup.Main.main(Main.java:29)
+Failed to find an item with id: 111 Exception Thrown: 2024-05-20 18:03
+se.kth.iv1350.seminar5.integration.NoMatchingItemByIdException: Failed to find an item with id: 111
+	at se.kth.iv1350.seminar5.integration.ExternalInventorySystemAccessPoint.retrieveItem(ExternalInventorySystemAccessPoint.java:80)
+	at se.kth.iv1350.seminar5.controller.Controller.addItem(Controller.java:107)
+	at se.kth.iv1350.seminar5.view.View.addItem(View.java:137)
+	at se.kth.iv1350.seminar5.view.View.fakeCustomerTwo(View.java:122)
+	at se.kth.iv1350.seminar5.startup.Main.main(Main.java:29)

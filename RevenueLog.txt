@@ -1,0 +1,8 @@
+
+---------Program start: 2024-05-20 18:03---------
+New sale completed. Revenue from sale: 189.0 SEK
+Total revenue since program start: 189.0 SEK
+
+New sale completed. Revenue from sale: 189.0 SEK
+Total revenue since program start: 378.0 SEK
+
