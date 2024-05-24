@@ -6,6 +6,7 @@ package se.kth.iv1350.seminar5.model;
 import java.time.LocalDateTime;
 import java.util.*;
 import se.kth.iv1350.seminar5.integration.dto.ItemDTO;
+import se.kth.iv1350.seminar5.model.dto.ItemListDTO;
 import se.kth.iv1350.seminar5.model.dto.ReceiptDTO;
 import se.kth.iv1350.seminar5.model.dto.SaleStateDTO;
 
@@ -165,12 +166,21 @@ public class Receipt {
     }
     
     /**
-     * Returns an list containing ItemDTO's representing the items 
+     * Returns an DTO that contains a list of ItemDTOs representing the items 
      * that are saved on the Receipt object.
      * 
-     * @return An ItemDTO List
+     * @return An ItemListDTO
      */
-    public List<ItemDTO> getItemList(){
+    public ItemListDTO getItemListDTO(){
+        
+        return new ItemListDTO(getItemList());
+    }
+    
+    /**
+     * Returns an List of ItemDTOs reprecenting the items that are saved on the Receipt.
+     * @return An List of ItemDTOs.
+     */
+    List<ItemDTO> getItemList(){
         List<ItemDTO> itemDTOList = new ArrayList<>();
         ItemDTO convertedItem;
         for (Item item : itemList){

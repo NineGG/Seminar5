@@ -80,10 +80,10 @@ public class Controller {
         ReceiptDTO printReceipt;
         try {
             printReceipt = sale.payment(payment);
-            List<ItemDTO> itemList = sale.getItemList();
+            ItemListDTO itemListDTO = sale.getItemList();
             ReceiptDTO saleInfo = sale.getSaleInfo();
             accounting.updateAccounting(saleInfo);
-            externInv.updateInventory(itemList);
+            externInv.updateInventory(itemListDTO);
         } catch (ItemInventoryResultLessThanZeroException e) {
             logger.log(e);
             throw new ActionFailedException("Database call would result in negative inventory", e);

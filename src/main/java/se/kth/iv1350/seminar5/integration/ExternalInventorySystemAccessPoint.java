@@ -6,6 +6,7 @@ package se.kth.iv1350.seminar5.integration;
 import java.util.ArrayList;
 import java.util.List;
 import se.kth.iv1350.seminar5.integration.dto.ItemDTO;
+import se.kth.iv1350.seminar5.model.dto.ItemListDTO;
 
 /**
  * This class is a handler class that represents a connection 
@@ -95,15 +96,16 @@ public class ExternalInventorySystemAccessPoint {
     }
     
     /**
-     * Updates the ExternalInventorySystem based on the items provided.
+     * Updates the ExternalInventorySystem based on the items provided in an ItemListDTO.
      * 
-     * @param itemList List of Item objects.
+     * @param itemListDTO an ItemListDTO from the sale.
      */
-    public void updateInventory(List<ItemDTO> itemList) {
+    public void updateInventory(ItemListDTO itemListDTO) {
+        List<ItemDTO> itemDTOList = itemListDTO.getList();
         
         List<UpdateQueueSet> queue = new ArrayList<>();
         
-        for(ItemDTO item : itemList){
+        for(ItemDTO item : itemDTOList){
             for(ExternalInventorySystemItem inventoryItem : inventory){
                 if (inventoryItem.getItemId() == item.getItemId()){
                     queue.add(new UpdateQueueSet(item, inventoryItem));

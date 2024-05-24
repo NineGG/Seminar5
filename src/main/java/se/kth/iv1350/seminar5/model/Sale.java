@@ -52,10 +52,10 @@ public class Sale {
     /**
      * Gets the items stored in the current sale.
      * 
-     * @return A list of ItemDTO objects from the current sale.
+     * @return An ItemListDTO.
      */
-    public List<ItemDTO> getItemList(){
-        return receipt.getItemList();
+    public ItemListDTO getItemList(){
+        return receipt.getItemListDTO();
     }
     
     

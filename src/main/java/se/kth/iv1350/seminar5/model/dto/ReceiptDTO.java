@@ -4,7 +4,6 @@
  */
 package se.kth.iv1350.seminar5.model.dto;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import se.kth.iv1350.seminar5.integration.dto.ItemDTO;
 import java.util.List;
 import se.kth.iv1350.seminar5.model.Receipt;
@@ -14,7 +13,7 @@ import se.kth.iv1350.seminar5.model.Receipt;
  * @author nilse
  */
 public class ReceiptDTO {
-    private final List<ItemDTO> itemList;
+    private final ItemListDTO itemListDTO;
     
     private final double totalCostBeforeDiscount;
     private final LocalDateTime dateAndTime;
@@ -43,7 +42,7 @@ public class ReceiptDTO {
         this.totalVAT = receipt.getTotalVAT();
         this.discount = receipt.getDiscount();
         
-        this.itemList = receipt.getItemList();
+        this.itemListDTO = receipt.getItemListDTO();
     }
     
     /**
@@ -134,11 +133,6 @@ public class ReceiptDTO {
      * @return An ItemDTO List
      */
     public List<ItemDTO> getItemList(){
-        List<ItemDTO> returnList = new ArrayList<>();
-        
-        for (ItemDTO itemDTO : itemList) {
-            returnList.add(itemDTO);
-        }
-        return returnList;
+        return itemListDTO.getList();
     }
 }

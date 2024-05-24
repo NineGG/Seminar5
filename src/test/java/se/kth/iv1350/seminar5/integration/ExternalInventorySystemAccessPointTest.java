@@ -4,10 +4,7 @@
  */
 package se.kth.iv1350.seminar5.integration;
 
-import se.kth.iv1350.seminar5.integration.NoMatchingItemByIdException;
-import se.kth.iv1350.seminar5.integration.ItemInventoryResultLessThanZeroException;
-import se.kth.iv1350.seminar5.integration.DatabaseUnresponsiveException;
-import se.kth.iv1350.seminar5.integration.ExternalInventorySystemAccessPoint;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
@@ -15,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import se.kth.iv1350.seminar5.integration.dto.ItemDTO;
+import se.kth.iv1350.seminar5.model.dto.ItemListDTO;
 
 /**
  *
@@ -54,7 +52,8 @@ public class ExternalInventorySystemAccessPointTest {
         try{
             correction = invInstance.retrieveItemStatus(itemId);
             itemList.add(new ItemDTO(-(100-correction.getItemAmount()), itemId, itemName, itemDescription, valueAddedTax, price));
-            invInstance.updateInventory(itemList);
+            ItemListDTO itemListDTO = new ItemListDTO(itemList);
+            invInstance.updateInventory(itemListDTO);
         } catch (Exception e) {
             fail("Teardown of Unit Test Failed: " + e.getMessage());
         }
@@ -73,7 +72,8 @@ public class ExternalInventorySystemAccessPointTest {
         itemList.add(itemTwoDTO);
         try {
             int expected = invInstance.retrieveItemStatus(itemTwoDTO.getItemId()).getItemAmount() - itemTwoDTO.getItemAmount();
-            invInstance.updateInventory(itemList);
+            ItemListDTO itemListDTO = new ItemListDTO(itemList);
+            invInstance.updateInventory(itemListDTO);
             int result = invInstance.retrieveItemStatus(itemTwoDTO.getItemId()).getItemAmount();
             assertEquals(expected, result, "Did not update correctly, expected " + expected + " got " + result);
         } catch (Exception e) {
@@ -88,9 +88,10 @@ public class ExternalInventorySystemAccessPointTest {
         
         List<ItemDTO> itemList = new ArrayList<>();
         itemList.add(itemDTO);
+        ItemListDTO itemListDTO = new ItemListDTO(itemList);
         
         try {
-            invInstance.updateInventory(itemList);
+            invInstance.updateInventory(itemListDTO);
             fail("updateInvntory fails to throw when inventory is about to go into the negatives.");
         } catch (ItemInventoryResultLessThanZeroException e) {
         } catch (Exception e) {
